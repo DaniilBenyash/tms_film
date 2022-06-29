@@ -1,0 +1,57 @@
+@import "../../styles/variables";
+
+.input{
+    display: flex;
+    flex-direction: column;
+    font-family: Exo-2-SemiBold, sans-serif;
+    font-style: Bold;
+    font-size: $font-size-subline-2;
+    line-height: 24px;
+
+    &__form{
+        margin-top: 8px;
+        padding: 16px 20px;
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        background-color: $color-graphite;
+        font-family: Exo-2-Medium, sans-serif;
+        font-style: medium;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        color: $color-white;
+
+        &::placeholder{
+            color: $color-secondary;
+        }
+    }
+
+    &__form:focus{
+        outline: 2px solid $color-primary;
+    }
+
+    &__form:active{
+        outline: none;
+    }
+
+    &__form:disabled{
+        background-color: $color-secondary;
+
+        &::placeholder{
+            color: $color-light; 
+        }
+    }
+
+    &__form_error{
+        outline: 2px solid $color-error;
+    }
+
+    &__error-text{
+        margin-top: 4px;
+        color: $color-error;
+        font-family: Exo-2-Medium, sans-serif;
+        font-style: medium;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+    }
+}

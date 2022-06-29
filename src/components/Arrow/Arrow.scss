@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.arrow{
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: url('./icon/arrowDefault.svg') no-repeat center;
+    cursor: pointer;
+
+    &_left{
+        transform: scale(-1);
+    }
+
+    &:hover{
+        background: url('./icon/arrowHover.svg') no-repeat center;
+    }
+
+    &:disabled{
+        background: url('./icon/arrowDisabled.svg') no-repeat center;
+        cursor: default;
+    }
+}

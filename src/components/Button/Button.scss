@@ -1,0 +1,34 @@
+@import "../../styles/variables";
+
+.button{
+    height: 56px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-family: Exo-2-SemiBold, sans-serif;
+    font-size: $font-size-subline-2;
+    line-height: 24px;
+    cursor: pointer;
+    color: $color-white;
+
+    &:disabled{
+        background-color: $color-secondary;
+        color: $color-light;
+    }
+
+    &_primary{
+        background-color: $color-primary;
+        
+        &:hover{
+            background-color: $color-primary2;
+        }
+    }
+
+    &_secondary{
+        background-color: $color-graphite;
+
+        &:hover{
+            color: $color-light;
+        }
+    }
+}

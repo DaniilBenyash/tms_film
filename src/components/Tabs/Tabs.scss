@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+.tabs{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: min-content;
+
+    &__button{
+        height: 52px;
+        width: 100%;
+        border: 2px solid $color-graphite;
+        background-color: $color-dark;
+        font-family: Exo-2-Medium, sans-serif;
+        font-style: medium;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        color: $color-secondary;
+
+        &_left{
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        &_right{
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        &_active{
+            background-color: $color-graphite;
+            color: $color-white;
+        }
+
+        &:hover{
+            color: $color-white;
+        }
+    }
+}

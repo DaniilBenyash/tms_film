@@ -1,0 +1,42 @@
+@import "../../../../styles/variables";
+
+.list{
+    position: absolute;
+    top: 130%;
+    width: 100%;
+
+    &__line{
+        width: 100%;
+        background-color: $color-graphite;
+        font-family: Exo-2-Medium, sans-serif;
+        font-style: medium;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        color: $color-white;
+        border: none;
+        border-bottom: 1px solid $color-black;
+        padding: 17px 20px;
+        cursor: pointer;
+        text-align: left;
+
+        &:hover{
+            color: $color-primary;
+        }
+
+        &_first{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        &_last{
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border: none;
+        }
+        &_selected{
+            background: url('./icon/check.svg') no-repeat calc(100% - 22px);
+            background-color: $color-graphite;
+        }
+
+    }
+}

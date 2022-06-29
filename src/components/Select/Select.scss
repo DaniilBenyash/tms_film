@@ -1,0 +1,84 @@
+@import "../../styles/variables";
+
+.select{
+
+    &__title{
+        font-family: Exo-2-SemiBold, sans-serif;
+        color: $color-white;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+
+    &__form{
+        position: relative;
+        border-radius: 10px;
+        border: none;
+        padding: 16px 20px;
+        font-family: Exo-2-Medium, sans-serif;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        color: $color-secondary;
+        background: url(./icon//arrow.svg) no-repeat right center;
+        background-position: calc(100% - 16px);
+        background-color: $color-graphite;
+        cursor: pointer;
+        margin-bottom: 8px;
+        z-index: 2;
+
+        &:hover{
+            color: $color-white;
+            background: url(./icon//white-arrow.svg) no-repeat right center;
+            background-position: calc(100% - 16px);
+            background-color: $color-graphite;
+        }
+    
+        &_active{
+            border: 2px solid $color-primary;
+        }
+
+        &_selected{
+            color: white;
+        }
+    }
+
+    &__table{
+        display: none;
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        font-family: Exo-2-Medium, sans-serif;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        color: $color-white;
+        background-color: $color-graphite;
+        z-index: 3;
+
+        &_active{
+            display: block;
+            position: absolute;
+        }
+    }
+
+    &__option{
+        padding: 16px 20px;
+        border-bottom: 1px solid $color-dark;
+        cursor: pointer;
+
+        &:last-child{
+            border: none;
+        }
+
+        &:active{
+            color: $color-primary;
+        }
+    }
+
+    &__close-select{
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        width: 100vw;
+        height: 100vh;
+    }
+}

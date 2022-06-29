@@ -1,0 +1,53 @@
+@import "../../styles/variables";
+
+.switch{
+    display: flex;
+    align-items: center;
+    width: 36px;
+    height: 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+    &_off{
+        background-color: $color-light;
+
+        &:disabled{
+            background-color: $color-secondary;
+        }
+    }
+
+    &_on{
+        background-color: $color-primary;
+
+        &:disabled{
+            background-color: $color-primary;
+        }
+    }
+
+    &__toggle{
+        position: relative;
+        margin: 2px;
+        width: 16px;
+        height: 16px;
+        border-radius: 100%;
+        cursor: pointer;
+        border: none;
+
+        &_off{
+            left: 0;
+
+            &:disabled{
+                background-color: $color-light;
+            }
+        }
+
+        &_on{
+            left: 43%;
+
+            &:disabled{
+                background-color: $color-primary2;
+            }
+        }
+    }
+}

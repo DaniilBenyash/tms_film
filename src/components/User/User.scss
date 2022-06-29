@@ -1,0 +1,57 @@
+@import "../../styles/variables";
+
+.user{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: max-content;
+    width: 256px;
+    font-family: Exo-2-SemiBold, sans-serif;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    background-color: inherit;
+
+    &__icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 56px;
+        width: 56px;
+        background-color: $color-primary;
+        border-radius: 10px;
+        margin-right: 20px;
+
+        &_not-auth{
+            background: url('./icon/user.svg') no-repeat center;
+            background-color: $color-primary;
+        }
+    }
+
+    &__initials{
+        font-size: $font-size-headline-3-desktop;
+        line-height: 24px;
+        color: $color-white;
+    }
+
+    &__name{
+        font-size: 16px;
+        line-height: 24px;
+        color: $color-white
+    }
+
+    &__arrow{
+
+        &_active{
+            background: url('./icon/ArrowActive.svg') no-repeat right;
+        }
+
+        &_def{
+            background: url('./icon/ArrowDef.svg') no-repeat right; 
+        }
+
+        &_not-auth{
+            background: url('./icon/ArrowNotAuth.svg') no-repeat right;
+        }
+    }
+}

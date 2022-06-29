@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.multi-select{
+    
+    width: 300px;
+
+    &__title{
+        font-family: Exo-2-SemiBold, sans-serif;
+        color: $color-white;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+
+    &__form{
+        width: 100%;
+        height: max-content;
+        position: relative;
+    }
+
+    &__input{
+        width: calc(100% - 40px);
+        border: none;
+        background-color: $color-graphite;
+        border-radius: 10px;
+        padding: 16px 20px;
+        font-family: Exo-2-Medium, sans-serif;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        color: $color-white ;
+        position: relative;
+
+        &:focus{
+            outline: 2px solid $color-primary;
+        }
+    }
+
+    &__table{
+        width: calc(100% - 12px);
+        height: max-content;
+        padding: 6px;
+        background-color: $color-graphite;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
