@@ -1,11 +1,17 @@
 import React from 'react';
-import { SearchLine } from './components/SearchLine';
+import { Card } from './components/Card';
 
 function App() {
     
     return (
         <div className="App">
-            <SearchLine disabled={false} filter={true}></SearchLine>
+            <Card 
+                    title="Harry Potter and the Deathly Hallows: Part 2"
+                    imdbID="tt0145487"
+                    poster='https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg'
+                    favorite={false}
+                    trend={false}
+            ></Card>
         </div>
     );
 }

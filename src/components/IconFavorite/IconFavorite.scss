@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+.icon-favorite{
+    width: min-content;
+    height: min-content;
+    background-color: $color-graphite;
+    border-radius: 6px;
+    padding: 5px 13px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
