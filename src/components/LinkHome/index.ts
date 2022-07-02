@@ -1,1 +1,0 @@
-export { LinkHome } from './LinkHome'

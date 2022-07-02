@@ -1,0 +1,31 @@
+@import "../../styles/variables";
+
+.navigation-menu{
+    padding: 0 64px;
+    width: max-content;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1;
+
+    &__links{
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-gap: 40px;
+        margin-top: 152px;
+    }
+
+    &__сopyright{
+        font-family: "Exo-2-Medium", sans-serif;
+        font-style: medium;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        color: $color-light;
+        white-space: nowrap;
+        bottom: 0%;
+        margin-bottom: 64px;
+    }
+}

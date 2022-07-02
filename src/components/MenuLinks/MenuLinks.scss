@@ -1,0 +1,99 @@
+@import "../../styles/variables";
+
+.menu-links{
+    width: max-content;
+    border: none;
+    font-family: "Exo-2-SemiBold", sans-serif;
+    font-size: $font-size-subline-1;
+    line-height: 24px;
+    color: $color-secondary;
+    // text-align: right;
+    padding-left: 32px;
+    
+    padding-top: 2px;
+    cursor: pointer;
+
+    &_home{
+        background: url('./icon/homeDefault.svg') no-repeat left;
+        background-color: inherit;
+
+        &:hover{
+            background: url('./icon/homeHover.svg') no-repeat left;
+            color: $color-primary2
+        }
+    
+        &_active{
+            background: url('./icon/homeActive.svg') no-repeat left;
+            color: $color-primary;
+        }
+    
+        &:disabled{
+            background: url('./icon/homeDisabled.svg') no-repeat left;
+            color: $color-graphite;
+            cursor: default;
+        }
+    }
+
+    &_trends{
+        background: url('./icon/trendsDefault.svg') no-repeat left;
+        background-color: inherit;
+
+        &:hover{
+            background: url('./icon/trendsHover.svg') no-repeat left;
+            color: $color-primary2
+        }
+    
+        &_active{
+            background: url('./icon/trendsActive.svg') no-repeat left;
+            color: $color-primary;
+        }
+    
+        &:disabled{
+            background: url('./icon/trendsDisabled.svg') no-repeat left;
+            color: $color-graphite;
+            cursor: default;
+        }
+    }
+
+    &_favorites{
+        background: url('./icon/favoritesDefault.svg') no-repeat left;
+        background-color: inherit;
+
+        &:hover{
+            background: url('./icon/favoritesHover.svg') no-repeat left;
+            color: $color-primary2
+        }
+    
+        &_active{
+            background: url('./icon/favoritesActive.svg') no-repeat left;
+            color: $color-primary;
+        }
+    
+        &:disabled{
+            background: url('./icon/favoritesDisabled.svg') no-repeat left;
+            color: $color-graphite;
+            cursor: default;
+        }
+    }
+
+    &_setting{
+        background: url('./icon/settingDefault.svg') no-repeat left;
+        background-color: inherit;
+
+        &:hover{
+            background: url('./icon/settingHover.svg') no-repeat left;
+            color: $color-primary2
+        }
+    
+        &_active{
+            background: url('./icon/settingActive.svg') no-repeat left;
+            color: $color-primary;
+        }
+    
+        &:disabled{
+            background: url('./icon/settingDisabled.svg') no-repeat left;
+            color: $color-graphite;
+            cursor: default;
+        }
+    }
+}

@@ -1,17 +1,14 @@
 import React from 'react';
-import { Card } from './components/Card';
-
+import { NavigationMenu } from './components/NavigationMenu';
+import { Header } from './components/Header';
+import { MainPage } from './page/MainPage';
 function App() {
     
     return (
         <div className="App">
-            <Card 
-                    title="Harry Potter and the Deathly Hallows: Part 2"
-                    imdbID="tt0145487"
-                    poster='https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg'
-                    favorite={false}
-                    trend={false}
-            ></Card>
+            <Header></Header>
+            <NavigationMenu/>
+            <MainPage></MainPage>
         </div>
     );
 }
