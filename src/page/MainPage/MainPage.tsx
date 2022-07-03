@@ -1,26 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './MainPage.scss';
-
 import { Card } from "../../components/Card";
 import { ButtonMore } from "./components/ButtonMore";
+import { usePosts } from "../../features/getPosts";
 
 export const MainPage = () => {
 
-    const array = [1,2,3,4,5,6,7,8,9,10]
-
+    const { infoPosts, fetchMorePosts } = usePosts()
+    
+    useEffect(() => {
+        fetchMorePosts(1)
+    }, [null])
+    
     return (
         <div className="main-page">
             
             <div className="main-page__cards">
-                {array.map((card, index) => {
+                {infoPosts?.map((post, index) => {
                     return(
                         <Card
                             key={index}
-                            title='Spider-Man'
-                            imdbID="tt0145487"
-                            poster='https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg'
-                            favorite={false} 
-                            trend={false} 
+                            title={post.Title}
+                            imdbID={post.imdbID}
+                            poster={post.Poster}
+                            rating={post.imdbRating}
+                            genre={post.Genre}
+                            favorite={post.Favorite} 
+                            trend={post.Trend} 
                         />
                     )
                 })}

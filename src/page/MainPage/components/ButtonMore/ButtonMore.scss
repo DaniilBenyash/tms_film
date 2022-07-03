@@ -13,6 +13,8 @@
     background-color: $color-graphite;
     border-radius: 40px;
     margin: 64px 0;
+    cursor: pointer;
+    border: none;
 
     &__lds-ring {
         display: inline-block;
