@@ -102,11 +102,13 @@ export const MultiSelect = ({placeholder, title, genres}: MultiSelectProps) => {
     }, [filter])
 
     useEffect(() => {
-        setFilterState({genre: selectItems})
-        if(selectItems.length === 0) {
-            setInputActive(true)
+        if(selectItems !== filter?.genre){
+            setFilterState({genre: selectItems})
+            if(selectItems.length === 0) {
+                setInputActive(true)
+            }
         }
-    }, [selectItems])
+    }, [selectItems, setFilterState, filter?.genre])
 
     return (
         <div className="multi-select">

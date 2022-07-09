@@ -17,12 +17,12 @@ export const PostPage = () => {
 
     const { id } = useParams();
     const {userInfo, addActiveUser} = useUserInfo()
-
+    
     useEffect(() => {
-        if(id){
-            getOnePost(id);
-        }  
-    }, [id])
+        if(id && id !== onePost?.imdbID){
+            getOnePost(id)       
+        } 
+    }, [id, onePost, getOnePost])
 
     const createFavoritePost = (posts: IOnePost[]) => {
         if(onePost && userInfo){
