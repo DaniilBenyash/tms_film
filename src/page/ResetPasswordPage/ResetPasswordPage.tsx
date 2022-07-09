@@ -16,8 +16,7 @@ export const ResetPasswordPage = ( ) => {
 
     const changeInputEmail = (event: any): void => setValueEmail(event.target.value)
 
-
-    const { notActiveUsers, userInfo } = useUserInfo();
+    const { notActiveUsers } = useUserInfo();
 
     const navigate = useNavigate();
 
@@ -37,19 +36,22 @@ export const ResetPasswordPage = ( ) => {
         if(resetPasswordUser){
             navigate('/new-password')
         }
-    }, [resetPasswordUser])
+    }, [resetPasswordUser, navigate])
 
-    useEffect(() => {   
-        {errorResetPassword && setErrorEmail(errorResetPassword)}
+    useEffect(() => {
+        if(errorResetPassword){
+            setErrorEmail(errorResetPassword)
+        }
     }, [errorResetPassword])
 
     useEffect(() => {
+        const currenEmai = inputEmail.current
         const focusEmail = () => setErrorEmail('')
 
-        inputEmail.current?.addEventListener('focus', focusEmail);    
+        currenEmai?.addEventListener('focus', focusEmail);    
 
         return () => {
-            inputEmail.current?.removeEventListener('focus', focusEmail);    
+            currenEmai?.removeEventListener('focus', focusEmail);    
         }
     })  
 

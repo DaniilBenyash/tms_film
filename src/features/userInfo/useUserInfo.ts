@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { type UserInfo, setActiveUser, setNotActiveUser } from "./userInfoSlice";
 

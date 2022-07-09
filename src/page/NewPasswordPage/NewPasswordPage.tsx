@@ -39,19 +39,19 @@ export const NewPasswordPage = ( ) => {
                 }
                 
             }
-            {valuePassword === valueConfirmPassword
-                &&
-                fetchNewPassword(formData)}
+            if(valuePassword === valueConfirmPassword){
+                fetchNewPassword(formData)
                 navigate('/')
-        }
+            }
+        }  
     }
 
     useEffect(() => {
-        {valueConfirmPassword != valuePassword
-        ?
-        setErrorConfirmPassword("Passwords don't match")
-        :
-        setErrorConfirmPassword('')}
+        if(valueConfirmPassword !== valuePassword){
+            setErrorConfirmPassword("Passwords don't match")
+        } else {
+            setErrorConfirmPassword('')
+        }
     }, [valueConfirmPassword, valuePassword])
 
     return (

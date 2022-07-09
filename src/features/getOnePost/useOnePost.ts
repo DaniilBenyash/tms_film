@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { fetchOnePost, IOnePost } from "./onePostSlice";
+import { fetchOnePost } from "./onePostSlice";
 
 export const useOnePost = () => {
     const onePost = useAppSelector( state => state.onePost.content )

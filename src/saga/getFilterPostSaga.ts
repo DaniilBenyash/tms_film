@@ -5,7 +5,7 @@ import { type DataServer } from "../features/getPosts/postsSlice";
 
 export function* fetchFilterPosts(action: PayloadAction<string>) {
     try {
-        const array = [1,2,3,4,5,6,7,8,9,10];
+        const array = [1,2,3,4,5];
         
         const requests: Response[] = yield(array.map(page => {
             return (

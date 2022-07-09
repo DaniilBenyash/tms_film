@@ -7,13 +7,11 @@ import { FilterOption } from "./components/FilterOption";
 export const SortingPage = () => {
 
     const [posts, setPosts] = useState<IOnePost[]>([])
-    const {filterPostInfo, errorFilter, filter, filterPost} = useFilterPost()
+    const {filterPostInfo, errorFilter, filter} = useFilterPost()
     
     useEffect(() => {    
-        setPosts(filterPostInfo)
-       
-    },[filter])
-
+        setPosts(filterPostInfo)  
+    },[filter, filterPostInfo])
 
     return (
         <div className="sorting-page">  

@@ -1,4 +1,4 @@
-import { createSlice, type PayloadAction, current } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 export interface IOnePost {
     Title: string,
@@ -63,13 +63,13 @@ export const onePostSlice = createSlice({
     initialState,
     reducers: {
         fetchOnePost: (state, action: PayloadAction<string>) => {
-            if(state.isLoading = 'idle'){
+            if(state.isLoading === 'idle'){
                 state.content = null
                 state.isLoading = 'pending'
             }
         },
         fetchOnePostSuccess: (state, action: PayloadAction<IOnePost>) => {
-            if(state.isLoading = 'pending'){     
+            if(state.isLoading === 'pending'){     
                 state.isLoading = 'idle'
                 state.content = (Number(action.payload.imdbRating) > 8 ? {...action.payload, Trend: true} : action.payload)
 
@@ -78,7 +78,7 @@ export const onePostSlice = createSlice({
                 } else {
                     state.watchedPost = [action.payload, 
                         ...state.watchedPost
-                        .filter(post => post.Title != action.payload.Title)
+                        .filter(post => post.Title !== action.payload.Title)
                         .slice(0,3)]
                         .map(post => Number(post.imdbRating) > 8 ? {...post, Trend: true} : post)
                 }
