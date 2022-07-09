@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import './Form.scss';
 import { Link } from "react-router-dom";
+import { useTheme } from "../../features/theme";
 
 type FormProps = {
     title: string,
@@ -11,14 +12,12 @@ type FormProps = {
 }
 
 export const Form = ({title, inputs, forgot, sign, button}: FormProps) => {
+    const { theme } = useTheme()
 
-
-
-    
     return (
-        <div className="form">
-            <div className="form__section">
-                <h3 className="form__title">{title}</h3>
+        <div className={`form form-${theme}`}>
+            <div className='form__section'>
+                <h3 className={`form__title form__title-${theme}`}>{title}</h3>
                 <div className="form__inputs">
                     {inputs.map((input, index) => {
                         return (
@@ -33,11 +32,11 @@ export const Form = ({title, inputs, forgot, sign, button}: FormProps) => {
                 &&
                 <Link to='/reset-password' className="form__button-forgot">Forgot password?</Link>
                 }
+                
                 <div className="form_padding_40">
                     {button}
                 </div>
                 
-
                 {sign === 'up' 
                 && 
                 <p className="form__text">Don't have an account?

@@ -6,11 +6,11 @@ import { useUserInfo } from "../../features/userInfo";
 import { useSignIn } from "../../features/signIn";
 import { useNavigate } from "react-router-dom";
 
-export const SignInPage = ( ) => {
+export const SignInPage = () => {
+
     const [valueEmail, setValueEmail] = useState('');
     const [errorEmail, setErrorEmail] = useState('');
     const [valuePassword, setValuePassword] = useState('');
-    const [errorPassword, setErrorPassword] = useState('');
 
     const inputEmail = React.useRef<HTMLInputElement>(null);
     const inputPassword = React.useRef<HTMLInputElement>(null);
@@ -40,19 +40,22 @@ export const SignInPage = ( ) => {
         if(userInfo){
             navigate('/')
         }
-    }, [userInfo])
+    }, [userInfo, navigate])
 
     useEffect(() => {   
-        {errorSignIn && setErrorEmail(errorSignIn)}
+        if(errorSignIn){
+            setErrorEmail(errorSignIn)
+        }
     }, [errorSignIn])
 
     useEffect(() => {
+        const currentEmail = inputEmail.current
         const focusEmail = () => setErrorEmail('')
 
-        inputEmail.current?.addEventListener('focus', focusEmail);    
+        currentEmail?.addEventListener('focus', focusEmail);    
 
         return () => {
-            inputEmail.current?.removeEventListener('focus', focusEmail);    
+            currentEmail?.removeEventListener('focus', focusEmail);    
         }
     })  
 
@@ -82,7 +85,6 @@ export const SignInPage = ( ) => {
                     disabled={false}
                     onChange={changeInputPassword}
                     value={valuePassword}
-                    error={errorPassword}
                     ref={inputPassword}
                     type='password'
 

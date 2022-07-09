@@ -26,4 +26,8 @@
         flex-direction: row;
         justify-content: center;
     }
+
+    &-light{
+        background-color: $color_white;
+    }
 }

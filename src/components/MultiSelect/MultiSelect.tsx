@@ -3,7 +3,8 @@ import './MultiSelect.scss';
 import { List } from './components/List'
 import { useRef } from "react";
 import { NamePlate } from './components/NamePlate'
-import { useFilterPost } from '../../features/filterPost'
+import { useFilterPost } from '../../features/filterPost';
+import { useTheme } from "../../features/theme";
 
 type MultiSelectProps = {
     placeholder: string,
@@ -12,6 +13,7 @@ type MultiSelectProps = {
 }
 
 export const MultiSelect = ({placeholder, title, genres}: MultiSelectProps) => {
+    const { theme } = useTheme()
 
     const [selectItems, setSelectItems] = useState<any[]>([])
     const [findItems, setFindItems] = useState<any[]>([])
@@ -108,7 +110,7 @@ export const MultiSelect = ({placeholder, title, genres}: MultiSelectProps) => {
 
     return (
         <div className="multi-select">
-            <h4 className="multi-select__title">{title}</h4>
+            <h4 className={`multi-select__title multi-select__title-${theme}`}>{title}</h4>
             {inputActive
             ? 
             <div className="multi-select__form">

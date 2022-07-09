@@ -15,6 +15,9 @@
     cursor: pointer;
     border: none;
 
+    &-light{
+        background-color: $color-light;
+    }
     &:hover{
         color: $color-primary;
     }

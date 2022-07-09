@@ -28,6 +28,10 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        &-light{
+            background-color: $color-white;
+        }
     }
 
     &__header{
@@ -40,6 +44,10 @@
         color: $color-white;
         font-size: $font-size-headline-2-desktop;
         line-height: 24px;
+
+        &-light{
+            color: $color-graphite;
+        }
     }
     &__close-button{
         background: none;
@@ -53,6 +61,10 @@
         font-size: $font-size-subline-2;
         line-height: 24px;
         margin-bottom: 8px;
+
+        &-light{
+            color: $color-graphite;
+        }
     }
     &__border-line{
         height: 1px;

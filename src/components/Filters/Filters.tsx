@@ -8,9 +8,10 @@ import { Select } from '../Select'
 import { Button } from '../Button'
 import { useFilterPost } from '../../features/filterPost'
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../features/theme";
 
 export const Filters = () => {
-
+    const { theme } = useTheme()
     const [sortBy, setSortBy] = useState('Rating')
 
     const [genre] = useState(['Action', 'Adventure', 'Sci-Fi', 'Fantasy', 'Animation', 'Comedy', 'Family', 'Drama', 'Crime', 'Romance', 'Reality-TV', 'Western', 'Documentary', 'Game-Show', 'Short', 'Horror', 
@@ -57,18 +58,19 @@ export const Filters = () => {
 
         navigate('/sorting')
     }
+    
     return (
         <div className={`filters ${!activeFilter && 'filters_display_none'}`}>
             <div className="filters__window" onClick={() => {setWindowsFilter(false)}}></div>
-            <div className="filters__section">
+            <div className={`filters__section ${'filters__section-' + theme}`}>
                 <div>
                     <div className="filters__header">
-                        <h3 className="filters__title">Filters</h3>
+                        <h3 className={`filters__title ${'filters__title-' + theme}`}>Filters</h3>
                         <button className="filters__close-button" onClick={() => {setWindowsFilter(false)}}><Cancel/></button>
                     </div>
                 </div>
                 <div>
-                    <h3 className="filters__title-sort">Sort by</h3>
+                    <h3 className={`filters__title-sort ${'filters__title-sort-' + theme}`}>Sort by</h3>
                     <Tabs
                         nameLeft="Rating"
                         nameRight="Year"

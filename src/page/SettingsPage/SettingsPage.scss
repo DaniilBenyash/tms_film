@@ -25,6 +25,11 @@
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 40px;
         margin-bottom: 40px;
+
+        &-light{
+            background-color: $color-white;
+            border: 1px solid $color-graphite;
+        }
     }
 
     &__section-new-password{
@@ -42,6 +47,11 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
+        &-light{
+            background-color: $color-white;
+            border: 1px solid $color-graphite;
+        }
     }
 
     &__h4-value{
@@ -50,6 +60,10 @@
         font-size: $font-size-subline-2;
         line-height: 24px;
         margin-bottom: 4px;
+
+        &-light{
+            color: $color-graphite;
+        }
     }
 
     &__p-value{

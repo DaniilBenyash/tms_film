@@ -3,6 +3,7 @@ import './Posts.scss';
 import { IOnePost } from '../../features/getOnePost/onePostSlice';
 import { ButtonMore } from '../ButtonMore';
 import { Card } from '../Card';
+import { useTheme } from '../../features/theme'
 
 type PostsProps = {
     posts: IOnePost[] | null
@@ -13,8 +14,10 @@ type PostsProps = {
 }
 
 export const Posts = ({posts, error, onClickMore, limit, buttonMore}: PostsProps) => {
+
+    const { theme } = useTheme()
     return (
-        <div className="posts">
+        <div className={`posts ${'posts-' + theme}`}>
         {!posts || posts.length === 0
         ?
         <div className="posts__section">

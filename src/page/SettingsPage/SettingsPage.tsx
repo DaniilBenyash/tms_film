@@ -1,12 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import './SettingsPage.scss';
 import { Input } from '../../components/Input';
 import { Button } from "../../components/Button";
 import { Switch } from "../../components/Switch";
 import { useUserInfo } from "../../features/userInfo";
 import { type UserInfo } from "../../features/userInfo/userInfoSlice";
+import { useTheme } from '../../features/theme';
 
 export const SettingsPage = ( ) => {
+    const { theme, chengeTheme } = useTheme()
 
     const { userInfo, addActiveUser } = useUserInfo()
 
@@ -48,21 +50,28 @@ export const SettingsPage = ( ) => {
     }
 
     useEffect(() => {
-        {valueConfirmPassword != valueNewPassword
-        ?
-        setErrorConfirmPassword("Passwords don't match")
-        :
-        setErrorConfirmPassword('')}
+        if(valueConfirmPassword !== valueNewPassword){
+            setErrorConfirmPassword("Passwords don't match")
+        } else {
+            setErrorConfirmPassword('')
+        }
+    }, [valueNewPassword, valueConfirmPassword])
 
-    })
     useEffect(() => {
         if(valuePassword !== userInfo?.password && valuePassword){
             setErrorPassword('Неверный пароль')
         }else{
             setErrorPassword('')
         }
-    }, [valuePassword])
+    }, [valuePassword, userInfo?.password])
 
+    const setTheme = () => {
+        if(theme === 'dark'){
+            chengeTheme('light')
+        } else {
+            chengeTheme('dark')
+        }
+    }
 
     return (
         <div className="settings-page">
@@ -72,7 +81,7 @@ export const SettingsPage = ( ) => {
                     &&
                     <div className="settings-page__profile">
                     <h3 className="settings-page__title">Profile</h3>
-                        <div className="settings-page__section-select">
+                        <div className={`settings-page__section-select ${'settings-page__section-select-' + theme}`}>
                             <Input 
                                 label="Name"
                                 placeholder="Your email"
@@ -95,7 +104,7 @@ export const SettingsPage = ( ) => {
                 &&
                 <div className="settings-page__password">
                     <h3 className="settings-page__title">Password</h3>
-                    <div className="settings-page__section-select">
+                    <div className={`settings-page__section-select ${'settings-page__section-select-' + theme}`}>
                         <Input 
                             label="Password"
                             placeholder="Your password"
@@ -130,12 +139,12 @@ export const SettingsPage = ( ) => {
                 
                 <div className="settings-page__theme">
                     <h3 className="settings-page__title">Color mode</h3>
-                    <div className="settings-page__theme-section">
-                        <div className="settings-page__theme_value">
-                            <h4 className="settings-page__h4-value">Value!!!!!!!</h4>
+                    <div className={`settings-page__theme-section ${'settings-page__theme-section-' + theme}`}>
+                        <div className='settings-page__theme_value'>
+                            <h4 className={`settings-page__h4-value ${'settings-page__h4-value-' + theme}`}>{theme}</h4>
                             <p className="settings-page__p-value">{`Use value theme`}</p>
                         </div>
-                        <Switch disabled={false}/>
+                        <Switch disabled={false} onClick={setTheme}/>
                     </div>
                 </div>
                 {userInfo

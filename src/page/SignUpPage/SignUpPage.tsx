@@ -8,6 +8,7 @@ import { useSignUp } from "../../features/signUp";
 import { type TypeSign } from "../../features/userInfo/userInfoSlice";
 
 export const SignUpPage = () => {
+
     const [valueName, setValueName] = useState('');
 
     const [valueEmail, setValueEmail] = useState('');
@@ -42,48 +43,46 @@ export const SignUpPage = () => {
                 email: valueEmail,
                 password: valuePassword
             }
-            
         }
-
-        {valuePassword === valueConfirmPassword
-        &&
-        fetchSignUp(formData)}
-            
         
+        if(valuePassword === valueConfirmPassword){
+            fetchSignUp(formData)
+        }
     }
+
     useEffect(() => {
         if(userInfo){
             navigate('/')
         }
-    }, [userInfo])
+    }, [userInfo, navigate])
+
     useEffect(() => {
         if(errorSignUp){
-            {setErrorEmail(errorSignUp)}
+            setErrorEmail(errorSignUp)
         }
     }, [errorSignUp])
 
     useEffect(() => {
+        const currentEmail = inputEmail.current
         const focusEmail = () => setErrorEmail('')
 
-        inputEmail.current?.addEventListener('focus', focusEmail);
-
-        {valueConfirmPassword != valuePassword
-        ?
-        setErrorConfirmPassword("Passwords don't match")
-        :
-        setErrorConfirmPassword('')}
+        currentEmail?.addEventListener('focus', focusEmail);
+        if(valueConfirmPassword !== valuePassword){
+            setErrorConfirmPassword("Passwords don't match")
+        } else {
+            setErrorConfirmPassword('')
+        }
 
         return () => {
-            inputEmail.current?.removeEventListener('focus', focusEmail);
+            currentEmail?.removeEventListener('focus', focusEmail);
         }
-    })
+    }, [valueConfirmPassword, valuePassword])
 
     useEffect(() => {
         inputName.current?.focus()
         setErrorEmail('');
     }, [valueName])
 
-    
     return (
         <>
             <Login

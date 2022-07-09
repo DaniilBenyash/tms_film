@@ -20,6 +20,7 @@ import { resetPasswordReducers } from "../features/resetPassword";
 import { newPasswordReducers } from "../features/newPassword";
 import { resetPasswordSaga } from "../saga/resetPasswordSaga";
 import { newPasswordSaga } from "../saga/newPasswordSaga";
+import { themeReducers } from '../features/theme'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -34,6 +35,7 @@ export const store = configureStore({
         signIn: signInReducers,
         resetPassword: resetPasswordReducers,
         newPassword: newPasswordReducers,
+        theme: themeReducers,
     },
     middleware: getDefaultMiddleware => {
         return getDefaultMiddleware().concat(sagaMiddleware)

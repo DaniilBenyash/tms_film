@@ -37,7 +37,11 @@
     &__name{
         font-size: 16px;
         line-height: 24px;
-        color: $color-white
+        color: $color-white;
+
+        &-light{
+            color: $color-graphite;
+        }
     }
 
     &__arrow{

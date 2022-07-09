@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import './User.scss';
 import { UserMain } from './components/UserMain';
-import { ReactComponent as UserIcon} from './icon/user.svg'
+import { ReactComponent as UserIcon} from './icon/user.svg';
 import { useNavigate } from 'react-router-dom';
-import { useUserInfo } from '../../features/userInfo'
+import { useUserInfo } from '../../features/userInfo';
+import { useTheme } from '../../features/theme';
 
 type UserProps = {
     auth: boolean,
@@ -11,7 +12,8 @@ type UserProps = {
 }
 
 export const User = ({auth, name}: UserProps) => {
-
+    
+    const { theme } = useTheme()
     const [viewMenu, setViewMenu] = useState(false)
     const navigate = useNavigate()
     const { userInfo } = useUserInfo()
@@ -36,7 +38,7 @@ export const User = ({auth, name}: UserProps) => {
                 :
                 <UserIcon/>}
             </div>
-            <p className="user__name">
+            <p className={`user__name ${'user__name-' + theme}`}>
                 {userInfo
                 ? 
                 userInfo.name

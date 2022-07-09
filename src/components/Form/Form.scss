@@ -4,6 +4,10 @@
     width: 30%;
     background-color: $color-dark;
     border-radius: 10px;
+
+    &-light{
+        background-color: $color-white;
+    }
    
     &__section{
         padding: 40px;
@@ -15,6 +19,10 @@
         line-height: 36px;
         color: $color-white;
         padding-bottom: 40px;
+
+        &-light{
+            color: $color-graphite;
+        }
     }
 
     &__inputs{

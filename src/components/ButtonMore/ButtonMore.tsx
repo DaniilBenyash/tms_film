@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './ButtonMore.scss';
+import { useTheme } from '../../features/theme';
 
 type ButtonMoreProps = {
     limit?: boolean,
@@ -7,7 +8,7 @@ type ButtonMoreProps = {
 }
 
 export const ButtonMore = ({limit, onClick}: ButtonMoreProps) => {
-
+    const { theme } = useTheme()
     const [limitPage, setLimitPage] = useState(false)
 
     useEffect(() => {
@@ -17,7 +18,7 @@ export const ButtonMore = ({limit, onClick}: ButtonMoreProps) => {
     }, [limit])
 
     return (
-        <button className={`button-more ${limitPage && 'button-more_dislpay_none'}`} onClick={onClick}>
+        <button className={`button-more ${limitPage && 'button-more_dislpay_none'} ${'button-more-' + theme}`} onClick={onClick}>
             Show more
             <span className="button-more__loader"></span>
         </button>

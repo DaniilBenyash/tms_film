@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './Genre.scss';
 
 type GenreProps = {
@@ -7,7 +7,6 @@ type GenreProps = {
 
 export const Genre = ({genre}: GenreProps) => {
 
-    
     return (
         <div className="genre">
             {genre?.map((genre, index, array) => {

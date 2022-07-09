@@ -10,11 +10,11 @@ export const usePosts = () => {
 
     const dispatch = useAppDispatch()
 
-    // useEffect(() => {
-    //     if(!posts){
-    //         dispatch(fetchPosts(1))
-    //     }
-    // }, [posts, dispatch])
+    useEffect(() => {
+        if(!posts){
+            dispatch(fetchPosts(1))
+        }
+    }, [posts, dispatch])
 
     const fetchMorePosts = (page: number) => {
         dispatch(fetchPosts(page))

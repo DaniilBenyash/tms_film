@@ -1,30 +1,27 @@
 import React from "react";
 import './FavoritesPage.scss'; 
 import { ReactComponent as NoFavorites } from "./icon/no favorites.svg";
+import { useUserInfo } from "../../features/userInfo";
+import { Posts } from "../../components/Posts";
 
 export const FavoritesPage = () => {
+
+    const { userInfo } = useUserInfo()
     return (
-        <div className="favorites-page">
-            {/* <div className="trends-page">
-                <div className="trends-page__section">
-                    <div className="trends-page__cards">
-                        {trendsPost?.map((post, index) => {
-                            return(
-                                <Card
-                                    key={index}
-                                    title={post.Title}
-                                    imdbID={post.imdbID}
-                                    poster={post.Poster}
-                                    rating={post.imdbRating}
-                                    genre={post.Genre}
-                                    favorite={post.Favorite} 
-                                    trend={post.Trend} 
-                                />
-                            )
-                        })}
-                    </div>
-                </div>
-            </div> */}
-        </div>
+        <>
+            {userInfo?.favoritePost
+            ?
+            <Posts
+                posts={userInfo?.favoritePost}
+                buttonMore={false}
+            /> 
+            :
+            <div className="favorites-page">
+                <NoFavorites/>
+                <h3 className="favorites-page__title">No favorite cards</h3>
+            </div> 
+            }
+            
+        </>
     )
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import './Select.scss';
+import { useTheme } from "../../features/theme";
 
 type SelectProps = {
     placeholder: string,
@@ -9,10 +10,11 @@ type SelectProps = {
 }
 
 export const Select = ({placeholder, title, onChange, options}: SelectProps) => {
+    const { theme } = useTheme()
 
     return (
         <div className="select">
-            <h4 className="select__title">{title}</h4>
+            <h4 className={`select__title select__title-${theme}`}>{title}</h4>
             <select className="select__form" placeholder={placeholder} onChange={onChange} defaultValue={'Select type'}>
                 <option  disabled>Select type</option>
                 {options?.map(option => <option key={option} value={option}>{option}</option>)}

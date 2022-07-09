@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-
+    
 
     &__poster{
         position: relative;
@@ -20,6 +20,7 @@
     }
 
     &__title{
+        
         display: block;
         font-family: "Exo-2-SemiBold", sans-serif;
         font-style: bold;
@@ -30,12 +31,25 @@
         cursor: pointer;
         padding-top: 2vh;
         padding-bottom: 0.5vh;
-        
+    
         &:visited{
             color: $color-white;
         }
         &:hover{
             color: $color-primary;
         }
+
+        &-light{
+            color: $color-black;
+
+            &:visited{
+                color: $color-black;
+            }
+            
+            &:hover{
+                color: $color-primary;
+            }
+        }
     }
+    
 }

@@ -5,6 +5,7 @@
     flex-direction: row;
     color: $color-white;
     padding-right: 56px;
+    padding-bottom: 64px;
 
     &__image-section{
         display: flex;
@@ -21,6 +22,10 @@
         color: $color-white;
         font-size: $font-size-headline-1-desktop;
         padding-top: 10px;
+
+        &-light{
+            color: $color-graphite;
+        }
     }
     &__rating{
         display: flex;
@@ -48,6 +53,10 @@
         font-size: $font-size-subline-2;
         margin-bottom: 40px;
         padding-bottom: 20px;
+
+        &-light{
+            color: $color-graphite;
+        }
     }
     &__feature{
         color: $color-light;
@@ -58,6 +67,10 @@
         color: $color-white;
         font-size: 2.5vh;
         margin: 40px 0 56px;
+
+        &-light{
+            color: $color-graphite;
+        }
     }
     &__watched-post{
         display: grid;

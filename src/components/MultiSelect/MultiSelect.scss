@@ -10,6 +10,10 @@
         font-size: $font-size-subline-2;
         line-height: 24px;
         margin-bottom: 8px;
+
+        &-light{
+            color: $color-graphite;
+        }
     }
 
     &__form{

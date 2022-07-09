@@ -28,6 +28,8 @@ export const userInfoSlice = createSlice({
     initialState,
     reducers: {
         setActiveUser: (state, action: PayloadAction<UserInfo>) => {
+            console.log(action.payload);
+            
             state.activeUser = action.payload
         },
         setNotActiveUser: (state, action: PayloadAction<UserInfo>) => {
