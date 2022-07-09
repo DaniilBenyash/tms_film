@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationMenu } from './components/NavigationMenu';
 import { Header } from './components/Header';
-import { MainPage } from './page/MainPage';
+import { Outlet } from 'react-router-dom';
+import { useFilterPost } from './features/filterPost';
+
 function App() {
-    
+    const {activeFilter} = useFilterPost()
+    useEffect(() => {
+        if(activeFilter){
+            document.body.classList.add('scroll-disallowed')
+        } else {
+            document.body.classList.remove('scroll-disallowed')
+        }
+    }, [activeFilter])
     return (
-        <div className="App">
-            <Header></Header>
-            <NavigationMenu/>
-            <MainPage></MainPage>
-        </div>
+
+            <div className="App">
+                <Header></Header>
+                <div className="App__section">
+                    <NavigationMenu/>
+                    <Outlet/>
+                </div>
+            </div>
+        
     );
 }
 

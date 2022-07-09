@@ -10,9 +10,9 @@ export const Switch = ({disabled}: SwitchProps) => {
     const [positionSwitch, setPositionSwitch] = useState(false)
 
     return (
-        <button 
-            className={`switch ${positionSwitch ? 'switch_on' : 'switch_off'}`} 
-            disabled={disabled} 
+        <div 
+            className={`switch ${positionSwitch ? 'switch_on' : 'switch_off'} ${disabled && 'switch_on-disabled switch_off-disabled'}`} 
+            
             onClick={() => {setPositionSwitch(!positionSwitch)}}
         >
             <button 
@@ -20,6 +20,6 @@ export const Switch = ({disabled}: SwitchProps) => {
                 disabled={disabled}
             >
             </button>
-        </button>
+        </div>
     )
 }

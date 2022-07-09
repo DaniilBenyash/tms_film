@@ -3,6 +3,7 @@ import './MultiSelect.scss';
 import { List } from './components/List'
 import { useRef } from "react";
 import { NamePlate } from './components/NamePlate'
+import { useFilterPost } from '../../features/filterPost'
 
 type MultiSelectProps = {
     placeholder: string,
@@ -20,6 +21,8 @@ export const MultiSelect = ({placeholder, title, genres}: MultiSelectProps) => {
 
     const [tableActive, setTableActive] = useState(false)
 
+    const { setFilterState, filter } = useFilterPost()
+
     const inputRef = useRef<HTMLInputElement>(null)
 
     const findGenre = (ev: any) => {
@@ -27,7 +30,7 @@ export const MultiSelect = ({placeholder, title, genres}: MultiSelectProps) => {
         setInputValue(value)
         
         if(value){
-            setFindItems(genres.filter(el => el.toLowerCase().includes(value.toLowerCase())))
+            setFindItems(genres.filter(el => el.slice(0, value.length) === value))
         } else {
             setFindItems([])
         }
@@ -82,10 +85,22 @@ export const MultiSelect = ({placeholder, title, genres}: MultiSelectProps) => {
     useEffect(() => {
         if(tableActive){
             inputRef.current?.focus()
+            setInputValue('')
         }
-    })
+    }, [tableActive])
+    useEffect(() => { 
+        if(filter === null){
+            setSelectItems([])
+            setInputValue('')
+            if(inputRef.current){
+                inputRef.current.value = ''
+            }
+            
+        }
+    }, [filter])
 
     useEffect(() => {
+        setFilterState({genre: selectItems})
         if(selectItems.length === 0) {
             setInputActive(true)
         }

@@ -3,19 +3,23 @@ import './Input.scss';
 
 type InputProps = {
     placeholder: string,
-    disabled: boolean,
-    label: string,
+    disabled?: boolean,
+    label?: string,
     onChange?: (event: any) => void,
     value?: any,
     error?: string,
     type?: string,
+    readOnly?: boolean
 }
 
-export const Input = React.forwardRef(({label, placeholder, disabled, onChange, value, error, type}: InputProps, ref: ForwardedRef<any>) => {
+export const Input = React.forwardRef(({label, placeholder, disabled, onChange, value, error, type, readOnly}: InputProps, ref: ForwardedRef<any>) => {
     
     return (
         <label className='input'>
-            {label}
+            {label 
+            && 
+            <h3 className='input__label'>{label}</h3>
+            }
             <input 
                 type={type ?? 'input'}
                 ref={ref}
@@ -24,6 +28,7 @@ export const Input = React.forwardRef(({label, placeholder, disabled, onChange, 
                 disabled={disabled} 
                 value={value} 
                 onChange={onChange}
+                readOnly={readOnly}
             />
             {error 
             && 

@@ -1,4 +1,4 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction, current } from "@reduxjs/toolkit";
 
 export interface IOnePost {
     Title: string,
@@ -46,12 +46,14 @@ export interface IOnePost {
 
 type OnePostState = {
     content: null | IOnePost,
+    watchedPost: null | IOnePost[],
     isLoading: 'idle' | 'pending',
     error: null | any,
 }
 
  const initialState: OnePostState = {
      content: null,
+     watchedPost: null,
      isLoading: 'idle',
      error: null,
 }
@@ -62,19 +64,30 @@ export const onePostSlice = createSlice({
     reducers: {
         fetchOnePost: (state, action: PayloadAction<string>) => {
             if(state.isLoading = 'idle'){
+                state.content = null
                 state.isLoading = 'pending'
             }
         },
         fetchOnePostSuccess: (state, action: PayloadAction<IOnePost>) => {
-            if(state.isLoading = 'pending'){
+            if(state.isLoading = 'pending'){     
                 state.isLoading = 'idle'
-                state.content = action.payload
+                state.content = (Number(action.payload.imdbRating) > 8 ? {...action.payload, Trend: true} : action.payload)
+
+                if(!state.watchedPost){
+                    state.watchedPost = [action.payload].map(post => Number(post.imdbRating) > 8 ? {...post, Trend: true} : post)
+                } else {
+                    state.watchedPost = [action.payload, 
+                        ...state.watchedPost
+                        .filter(post => post.Title != action.payload.Title)
+                        .slice(0,3)]
+                        .map(post => Number(post.imdbRating) > 8 ? {...post, Trend: true} : post)
+                }
             }
         },
         fetchOnePostFailure: (state, action: PayloadAction<any>) => {
             state.isLoading = 'idle'
             state.error = action.payload
-        }
+        },
     }
 })
 

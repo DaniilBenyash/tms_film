@@ -19,7 +19,9 @@ export const List = ({lines, onClick, selectItems}: ListProps ) => {
                     key={index}
                     className={`list__line 
                                 ${index === 0 ? 'list__line_first' : (index === array.length-1 && 'list__line_last')} 
-                                ${checkLine(line) && 'list__line_selected'}`}
+                                ${checkLine(line) && 'list__line_selected'}
+                                ${array.length === 1 && 'list__line_border'}
+                                `}
                     onClick={onClick}
                     value={line}
                     >

@@ -1,20 +1,21 @@
 @import "../../styles/variables";
 
 .header{
-    background-color: black;
-    position: fixed;
+    background-color: inherit;
+    position: sticky;
+    top: 0px;
     width: 100%;
-    z-index: 2;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 40px 0;
+    padding: 40px 0 56px;
+    z-index: 100;
 
-    &_padding_63{
-        padding: 0 64px;
+    &_padding_64{
+        padding: 0 146px 0 64px;
     }
 
     &_padding_40{
-        padding: 0 56px 0 40px;
+        padding: 0 62px 0 40px;
     }
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import './User.scss';
 import { UserMain } from './components/UserMain';
 import { ReactComponent as UserIcon} from './icon/user.svg'
+import { useNavigate } from 'react-router-dom';
+import { useUserInfo } from '../../features/userInfo'
 
 type UserProps = {
     auth: boolean,
@@ -11,37 +13,39 @@ type UserProps = {
 export const User = ({auth, name}: UserProps) => {
 
     const [viewMenu, setViewMenu] = useState(false)
+    const navigate = useNavigate()
+    const { userInfo } = useUserInfo()
 
     const menuUser = (auth: boolean): void => {
-        if(auth){
+        if(userInfo){
             setViewMenu(!viewMenu)
         } else {
-            console.log('Не зарегистрирован');
+            navigate('/sign-in')
         }
     } 
 
     return (
-        <button 
-        className={`user ${viewMenu ? 'user__arrow_active' : ((name && auth) ? 'user__arrow_def' : 'user__arrow_not-auth')}`} 
+        <div 
+        className={`user ${viewMenu ? 'user__arrow_active' : ((userInfo) ? 'user__arrow_def' : 'user__arrow_not-auth')}`} 
         onClick={() => menuUser(auth)}
         >
             <div className='user__icon'>
-                {(name && auth) 
+                {(userInfo) 
                 ?
-                <p className="user__initials">{name[0]}</p>
+                <p className="user__initials">{userInfo.name[0]}</p>
                 :
                 <UserIcon/>}
             </div>
             <p className="user__name">
-                {(name && auth)
+                {userInfo
                 ? 
-                name 
+                userInfo.name
                 : 
                 'Sign In'}
             </p> 
             {viewMenu 
             &&
             <UserMain/>}
-        </button>
+        </div>
     )
 }

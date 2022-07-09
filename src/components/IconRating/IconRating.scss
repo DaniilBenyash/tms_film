@@ -4,12 +4,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     background-color: $color-green;
     border-radius: 6px;
-    padding: 0.6% 2%;
+    padding: 2px 8px;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 2vh;
+    left: 2vh;
 
     &__value{
         font-family: "Exo-2-SemiBold", sans-serif;
@@ -25,5 +26,11 @@
     &_trend{
         background-color: $color-primary;
         
+    }
+
+    &_position_none{
+        position: relative;
+        top: 0;
+        left: 0;
     }
 }

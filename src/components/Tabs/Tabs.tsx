@@ -2,25 +2,27 @@ import React from "react";
 import './Tabs.scss'
 
 type TabsProps = {
-    active: 'left' | 'right',
+    active: string,
     nameLeft: string,
     nameRight: string,
-    onClickLeft?: (event: any) => void,
-    onClickRight?: (event: any) => void,
+    onClick?: (event: any) => void,
+
 }
 
-export const Tabs = ({active, nameLeft, nameRight, onClickLeft, onClickRight}: TabsProps) => {
+export const Tabs = ({active, nameLeft, nameRight, onClick}: TabsProps) => {
     return (
         <div className="tabs">
             <button 
-                onClick={onClickLeft} 
-                className={`tabs__button tabs__button_left ${active === 'left' && 'tabs__button_active'}`}
+                onClick={onClick} 
+                className={`tabs__button tabs__button_left ${active === nameLeft && 'tabs__button_active'}`}
+                value={nameLeft}
             >
                 {nameLeft}
             </button>
             <button 
-                onClick={onClickRight} 
-                className={`tabs__button tabs__button_right ${active === 'right' && 'tabs__button_active'}`}
+                onClick={onClick} 
+                className={`tabs__button tabs__button_right ${active === nameRight && 'tabs__button_active'}`}
+                value={nameRight}
             >
                 {nameRight}
             </button>

@@ -12,7 +12,7 @@
     &_off{
         background-color: $color-light;
 
-        &:disabled{
+        &-disabled{
             background-color: $color-secondary;
         }
     }
@@ -20,7 +20,7 @@
     &_on{
         background-color: $color-primary;
 
-        &:disabled{
+        &-disabled{
             background-color: $color-primary;
         }
     }

@@ -1,0 +1,63 @@
+@import '../../styles/variables';
+
+.form{
+    width: 30%;
+    background-color: $color-dark;
+    border-radius: 10px;
+   
+    &__section{
+        padding: 40px;
+    }
+
+    &__title{
+        font-family: "Exo-2-SemiBold", sans-serif;
+        font-size: $font-size-headline-2-desktop;
+        line-height: 36px;
+        color: $color-white;
+        padding-bottom: 40px;
+    }
+
+    &__inputs{
+        display: grid;
+        grid-template-rows: auto;
+        grid-gap: 24px;
+    }
+
+    &__button-forgot{
+        font-family: "Exo-2-Medium", sans-serif;
+        font-size: 14px;
+        line-height: 24px;
+        display: block;
+        padding-top: 8px;
+        color:$color-secondary;
+        text-decoration: none;
+
+        &:visited{
+            color:$color-secondary;
+        }
+    }
+
+    &_padding_40{
+        padding: 40px 0 32px;
+    }
+
+    &__text{
+        font-family: "Exo-2-Medium", sans-serif;
+        font-size: 14px;
+        line-height: 24px;
+        color:$color-secondary;
+        text-align: center;
+    }
+
+    &__button-sign-up{
+        font-family: "Exo-2-Medium", sans-serif;
+        font-size: 14px;
+        line-height: 24px;
+        color: $color-primary;
+        text-decoration: none;
+
+        &:visited{
+            color: $color-primary;
+        }
+    }
+}

@@ -7,8 +7,8 @@ export function* fetchOnePost(action: PayloadAction<string>) {
         const response: Response = yield fetch(`https://www.omdbapi.com/?i=${action.payload}&apikey=8250cbf9`)
 
         const data: IOnePost = yield(response.json())
-
-        // yield put(fetchOnePostSuccess(data))
+        .then(res => res.Response === 'True' ? res : Promise.reject(res))  
+        yield put(fetchOnePostSuccess(data))
     } catch (error: any) {
         yield put(fetchOnePostFailure(error))
     }

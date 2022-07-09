@@ -1,25 +1,20 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { put, takeEvery } from 'redux-saga/effects';
-import { fetchPostsSuccess, fetchPostsFailure, type Posts } from '../features/getPosts/postsSlice';
+import { fetchPostsSuccess, fetchPostsFailure, type DataServer } from '../features/getPosts/postsSlice';
 
-type dataResponse = {
-    Response: string,
-    Search: Posts,
-    totalResults: string,
-}
+
 
 export function* fetchPosts(action: PayloadAction<number>) {
     try {
         const page = String(action.payload)
-        const response: Response = yield fetch(`https://omdbapi.com/?apikey=8250cbf9&s=spider-man&page=${page}`)
+        const response: Response = yield fetch(`https://omdbapi.com/?apikey=8250cbf9&s=spider-man&page=${action.payload}`)
         
-        const data: dataResponse = yield(response.json())
-        
-        
-        yield put(fetchPostsSuccess(data.Search))
+        const data: DataServer = yield(response.json())
+        .then(res => res.Response === 'True' ? res : Promise.reject(res))  
+        yield put(fetchPostsSuccess(data))
 
     } catch(error: any) {
-        yield put(fetchPostsFailure(error))
+        yield put(fetchPostsFailure(error.Error))
     }
 }
 

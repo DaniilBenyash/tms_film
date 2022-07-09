@@ -3,15 +3,19 @@
 .input{
     display: flex;
     flex-direction: column;
-    font-family: "Exo-2-SemiBold", sans-serif;
-    font-style: Bold;
-    font-size: $font-size-subline-2;
-    line-height: 24px;
+    width: 100%;
+    
+    &__label{
+        font-family: "Exo-2-SemiBold", sans-serif;
+        font-style: Bold;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        color: $color-white;
+    }
 
     &__form{
         margin-top: 8px;
         padding: 16px 20px;
-        width: 100%;
         border-radius: 10px;
         border: none;
         background-color: $color-graphite;

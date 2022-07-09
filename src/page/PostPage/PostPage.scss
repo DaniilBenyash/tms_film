@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+.post-page{
+    display: flex;
+    flex-direction: row;
+    color: $color-white;
+    padding-right: 56px;
+
+    &__image-section{
+        display: flex;
+        flex-direction: column;
+        margin-right: 42px;
+    }
+    &__poster{
+        border-radius: 20px;
+        width: max-content;
+        margin-bottom: 32px;
+    }
+    &__title{
+        font-family: "Exo-2-SemiBold", sans-serif;
+        color: $color-white;
+        font-size: $font-size-headline-1-desktop;
+        padding-top: 10px;
+    }
+    &__rating{
+        display: flex;
+        flex-direction: row;
+        margin: 26px 0;
+    }
+    &__icon-rating{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        padding: 2px 8px;
+        background-color: $color-graphite;
+        font-family: "Exo-2-SemiBold", sans-serif;
+        color: $color-white;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        margin-left: 20px;
+    }
+
+    &__text{
+        font-family: "Exo-2-Medium", sans-serif;
+        line-height: 24px;
+        font-size: $font-size-subline-2;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+    }
+    &__feature{
+        color: $color-light;
+        padding-right: 54px;
+    }
+    &__watched-title{
+        font-family: "Exo-2-SemiBold", sans-serif;
+        color: $color-white;
+        font-size: 2.5vh;
+        margin: 40px 0 56px;
+    }
+    &__watched-post{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2vw;
+    }
+}

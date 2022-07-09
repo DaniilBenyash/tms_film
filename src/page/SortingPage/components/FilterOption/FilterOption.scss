@@ -1,0 +1,18 @@
+@import '../../../../styles/variables';
+
+.filter-option{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 48px;
+
+    &__card{
+        background-color: $color-graphite;
+        border-radius: 40px;
+        color: $color-white;
+        font-family: "Exo-2-Medium", sans-serif;
+        font-size: $font-size-subline-2;
+        line-height: 24px;
+        padding: 8px 24px;
+        margin-right: 16px;
+    }
+}

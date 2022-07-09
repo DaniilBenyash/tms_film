@@ -1,12 +1,12 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { put, takeEvery } from 'redux-saga/effects';
-import { fetchPostsInfoSuccess, fetchPostsInfoFailure, type Posts } from "../features/getPosts/postsSlice";
+import { fetchPostsInfoSuccess, fetchPostsInfoFailure, type DataServer } from "../features/getPosts/postsSlice";
 import { IOnePost } from "../features/getOnePost/onePostSlice";
 
-export function* fetchPostsInfo(action: PayloadAction<Posts>) {
+export function* fetchPostsInfo(action: PayloadAction<DataServer>) {
     try {
 
-        const requests: Response[] = yield(action.payload.map(post => {
+        const requests: Response[] = yield(action.payload.Search.map(post => {
             return (
                 fetch(`https://www.omdbapi.com/?i=${post.imdbID}&apikey=8250cbf9`)
             )
@@ -16,7 +16,6 @@ export function* fetchPostsInfo(action: PayloadAction<Posts>) {
             Promise.all(requests)
             .then((responses) => Promise.all(responses.map(r => r.json())))
         )
-        console.log(data);
         yield put(fetchPostsInfoSuccess(data))
         
     } catch (error: any) {

@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './Card.scss';
+import { Link } from "react-router-dom";
 import { IconRating } from '../IconRating';
 import { IconFavorite } from '../IconFavorite';
 import { Genre } from '../Genre';
-import { IOnePost } from "../../features/getOnePost/onePostSlice";
-import { usePosts } from '../../features/getPosts';
 
 
 type CardProps = {
@@ -21,13 +20,17 @@ export const Card = ({title, imdbID, poster, favorite, trend, genre, rating}: Ca
     return (
         <div className="card">
             <div className="card__poster">
-                <img className="card__image" src={poster} alt="poster"/>
+                <Link to={`/post/${imdbID}`}>
+                    <img className="card__image" src={poster} alt="poster"/>
+                </Link>
                 <IconRating trend={trend} rating={rating}/>
                 {favorite && <IconFavorite/>}
             </div>
-            <div>
-                <h4 className="card__title">{title}</h4>
-                <Genre genre={genre}/>
+            <div >
+                <Link to={`/post/${imdbID}`} className='card__title'>
+                    {title}
+                </Link>
+                <Genre genre={genre.split(',').slice(0,3)}/>
             </div>
         </div>
     )

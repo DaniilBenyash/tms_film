@@ -10,15 +10,15 @@
         flex-direction: row;
         align-items: center;
         font-family: "Exo-2-Medium", sans-serif;
-        font-size: $font-size-subline-2;
+        font-size: 0.8vw;
         line-height: 24px;
         color: $color-light;
         width: max-content;
     }
 
     &__dot{
-        margin: 0 8px;
+        margin: 0 0.3vw;
         font-family: 'Times New Roman', Times, serif;
-        font-size: 40px;
+        font-size: 3vw;
     }
 }

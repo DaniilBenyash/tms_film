@@ -9,8 +9,15 @@ export type Posts = Array<{
     Poster: string,
 }>
 
+export type DataServer = {
+    Response: string,
+    Search: Posts,
+    totalResults: string,
+    Error?: string,
+}
 interface IPostsState {
     content: null | Posts,
+    numberOfPost: null | string,
     contentPostsInfo: null | IOnePost[],
     isLoading: 'idle' | 'pending',
     error: null | any,
@@ -19,6 +26,7 @@ interface IPostsState {
 
 const initialState: IPostsState = {
     content: null,
+    numberOfPost: null,
     contentPostsInfo: null,
     isLoading: 'idle',
     error: null,
@@ -34,21 +42,26 @@ export const postsSlice = createSlice({
                 state.isLoading = 'pending'
             }
         },
-        fetchPostsSuccess: (state, action:PayloadAction<Posts>) => {
+        fetchPostsSuccess: (state, action:PayloadAction<DataServer>) => {
             if(state.isLoading === 'pending'){
                 if(state.content === null) {
-                    state.content = action.payload
+                    state.numberOfPost = action.payload.totalResults
+                    state.content = action.payload.Search
                 }else{
-                    state.content = state.content.concat(action.payload)
+                    state.content = state.content.concat(action.payload.Search)
                 }
             }
         },
         fetchPostsInfoSuccess: (state, action: PayloadAction<IOnePost[]>) => {
-            if(state.isLoading = 'pending'){
+            if(state.isLoading === 'pending'){
+                state.isLoading = 'idle'
                 if(state.contentPostsInfo === null) {
                     state.contentPostsInfo = action.payload
+                                            .map(post => Number(post.imdbRating) > 8 ? {...post, Trend: true} : post)
                 } else {
-                    state.contentPostsInfo = state.contentPostsInfo.concat(action.payload)
+                    state.contentPostsInfo = state.contentPostsInfo
+                                            .concat(action.payload)
+                                            .map(post => Number(post.imdbRating) > 8 ? {...post, Trend: true} : post)
                 }
             }
         },
@@ -59,7 +72,7 @@ export const postsSlice = createSlice({
         fetchPostsInfoFailure: (state, action: PayloadAction<any>) => {
             state.isLoading = 'idle'
             state.errorPostsInfo = action.payload
-        }
+        },
     },
 })
 
@@ -68,7 +81,7 @@ export const {
     fetchPostsSuccess, 
     fetchPostsFailure,
     fetchPostsInfoSuccess,
-    fetchPostsInfoFailure
+    fetchPostsInfoFailure,
 } = postsSlice.actions
 
 export default postsSlice.reducer

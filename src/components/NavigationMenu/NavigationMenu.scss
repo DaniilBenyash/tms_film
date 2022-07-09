@@ -1,21 +1,20 @@
 @import "../../styles/variables";
 
 .navigation-menu{
-    padding: 0 64px;
-    width: max-content;
-    height: 100vh;
-    background-color: black;
+    background-color: inherit;
+    padding: 0 148px 0 64px;
+    position: sticky;
+    top: 152px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: fixed;
-    z-index: 1;
+    height: calc(100vh - 152px);
+    
 
     &__links{
         display: grid;
         grid-template-rows: repeat(4, 1fr);
         grid-gap: 40px;
-        margin-top: 152px;
     }
 
     &__сopyright{

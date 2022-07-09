@@ -1,13 +1,13 @@
 @import "../../styles/variables";
 
 .buttons-group{
-    width: 266px;
+    width: 100%;
     height: max-content;
     display: flex;
     flex-direction: row;
 
     &__button{
-        height: 56px;
+        height: 6vh;
         cursor: pointer;
         width: 100%;
         background-color: $color-graphite;
@@ -32,6 +32,7 @@
             }
         }
         &_right{
+            
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
             background: url('./icon/subDefault.svg') no-repeat center;
@@ -49,4 +50,5 @@
             }
         }
     }
+    
 }
