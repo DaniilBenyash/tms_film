@@ -6,7 +6,6 @@ import { fetchPostsSuccess, fetchPostsFailure, type DataServer } from '../featur
 
 export function* fetchPosts(action: PayloadAction<number>) {
     try {
-        const page = String(action.payload)
         const response: Response = yield fetch(`https://omdbapi.com/?apikey=8250cbf9&s=spider-man&page=${action.payload}`)
         
         const data: DataServer = yield(response.json())
