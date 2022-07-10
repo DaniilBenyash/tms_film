@@ -1,18 +1,20 @@
 @import '../../styles/variables';
 
 .posts{
-    width: 100%;
+    width: max-content;
 
     &__section{
         display: flex;
         flex-direction: column;
         padding-right: 62px;
+        // width: max-content;
     }
 
     &__cards{
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-gap: 40px;
+        padding-bottom: 64px;
     }
 
     &__error{
@@ -20,7 +22,7 @@
     }
 
     &__footer{
-        padding: 64px 0;
+        padding-bottom: 64px;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -29,5 +31,33 @@
 
     &-light{
         background-color: $color_white;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .posts{
+        &__section{
+            padding: 0 32px;
+        }
+        &__cards{
+            grid-gap: 20px; 
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .posts{
+        &__cards{
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .posts{
+        &__cards{
+            grid-template-columns: repeat(1, 1fr);
+            
+        }
     }
 }

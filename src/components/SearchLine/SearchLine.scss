@@ -71,3 +71,12 @@
         }
     }
 }
+
+@media screen and (max-width: 900px) {
+    .search-line{
+        position: absolute;
+        width: 90%;
+        top: 60%;
+        margin-left: 5%;
+    }
+}

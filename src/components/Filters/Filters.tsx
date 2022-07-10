@@ -70,13 +70,6 @@ export const Filters = () => {
                     </div>
                 </div>
                 <div>
-                    <h3 className={`filters__title-sort filters__title-sort-${theme}`}>Sort by</h3>
-                    <Tabs
-                        nameLeft="Rating"
-                        nameRight="Year"
-                        onClick={chengeSort}
-                        active={sortBy}
-                    />
                     <div className="filters__border-line"></div>
                     <Input 
                         placeholder="Your text"

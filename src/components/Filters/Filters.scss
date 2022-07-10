@@ -20,7 +20,7 @@
         opacity: 0.7;
     }
     &__section{
-        padding: 48px 40px;
+        padding: 40px 40px;
         width: 35vw;
         background-color: $color-dark;
         border-top-left-radius: 20px;
@@ -65,12 +65,6 @@
         &-light{
             color: $color-graphite;
         }
-    }
-    &__border-line{
-        height: 1px;
-        border-bottom: 1px solid $color-graphite;
-        width: 100%;
-        margin: 32px 0;
     }
     &_padding_24{
         height: 24px;

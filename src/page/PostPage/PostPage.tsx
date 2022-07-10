@@ -50,7 +50,6 @@ export const PostPage = () => {
 
     useEffect(() => {
         if(onePost && userInfo){
-            console.log(1);
             if(userInfo.favoritePost?.some(post => post.imdbID === onePost.imdbID)){
                 setFavorite(true)
             }else{

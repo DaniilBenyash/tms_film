@@ -59,3 +59,32 @@
         }
     }
 }
+
+@media screen and (max-width: 700px) {
+    .user{
+        width: min-content;
+
+        &__icon{
+            margin: 0;
+        }
+
+        &__name{
+            display: none;
+        }
+
+        &__arrow{
+            
+            &_active{
+                background: none;
+            }
+    
+            &_def{
+                background: none; 
+            }
+    
+            &_not-auth{
+                background: none;
+            }
+        }
+    }
+}

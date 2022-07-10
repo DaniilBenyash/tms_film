@@ -19,3 +19,23 @@
         padding: 0 62px 0 40px;
     }
 }
+
+@media screen and (max-width: 900px) {
+    .header{
+        &_padding_64{
+            padding: 0 40px 0 40px;
+        } 
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .header{
+        padding: 20px 0 90px;
+        display: flex;
+        justify-content: space-between;
+
+        &_padding_40{
+            padding: 0 5% 0 0;
+        }
+    }
+}
