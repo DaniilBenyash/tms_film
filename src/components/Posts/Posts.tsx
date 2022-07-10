@@ -17,7 +17,7 @@ export const Posts = ({posts, error, onClickMore, limit, buttonMore}: PostsProps
 
     const { theme } = useTheme()
     return (
-        <div className={`posts ${'posts-' + theme}`}>
+        <div className={`posts posts-${theme}`}>
         {!posts || posts.length === 0
         ?
         <div className="posts__section">

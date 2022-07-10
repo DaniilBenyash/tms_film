@@ -25,5 +25,10 @@
         background-color: $color-graphite;
         cursor: pointer;
         width: 100%;
+
+        &-light{
+            background-color: $color-white;
+            outline: 1px solid $color-black;
+        }
     }
 }

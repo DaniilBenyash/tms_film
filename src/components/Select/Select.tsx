@@ -15,7 +15,7 @@ export const Select = ({placeholder, title, onChange, options}: SelectProps) => 
     return (
         <div className="select">
             <h4 className={`select__title select__title-${theme}`}>{title}</h4>
-            <select className="select__form" placeholder={placeholder} onChange={onChange} defaultValue={'Select type'}>
+            <select className={`select__form select__form-${theme}`} placeholder={placeholder} onChange={onChange} defaultValue={'Select type'}>
                 <option  disabled>Select type</option>
                 {options?.map(option => <option key={option} value={option}>{option}</option>)}
             </select>

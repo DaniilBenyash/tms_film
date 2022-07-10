@@ -38,7 +38,7 @@ export const User = ({auth, name}: UserProps) => {
                 :
                 <UserIcon/>}
             </div>
-            <p className={`user__name ${'user__name-' + theme}`}>
+            <p className={`user__name user__name-${theme}`}>
                 {userInfo
                 ? 
                 userInfo.name

@@ -62,15 +62,15 @@ export const Filters = () => {
     return (
         <div className={`filters ${!activeFilter && 'filters_display_none'}`}>
             <div className="filters__window" onClick={() => {setWindowsFilter(false)}}></div>
-            <div className={`filters__section ${'filters__section-' + theme}`}>
+            <div className={`filters__section filters__section-${theme}`}>
                 <div>
                     <div className="filters__header">
-                        <h3 className={`filters__title ${'filters__title-' + theme}`}>Filters</h3>
+                        <h3 className={`filters__title filters__title-${theme}`}>Filters</h3>
                         <button className="filters__close-button" onClick={() => {setWindowsFilter(false)}}><Cancel/></button>
                     </div>
                 </div>
                 <div>
-                    <h3 className={`filters__title-sort ${'filters__title-sort-' + theme}`}>Sort by</h3>
+                    <h3 className={`filters__title-sort filters__title-sort-${theme}`}>Sort by</h3>
                     <Tabs
                         nameLeft="Rating"
                         nameRight="Year"

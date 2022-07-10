@@ -30,6 +30,24 @@
                 background: url('./icon/favDefault.svg') no-repeat center;
                 background-color: $color-secondary;
             }
+
+            &-light{
+
+                background: url('./icon/favDefault.svg') no-repeat center;
+                background-color: $color-white;
+                border: 1px solid $color-black;
+    
+                &:hover{
+                    background: url('./icon/favHover.svg') no-repeat center;
+                    background-color: $color-light;
+                }
+    
+                &:disabled{
+                    cursor: default;
+                    background: url('./icon/favDefault.svg') no-repeat center;
+                    background-color: $color-secondary;
+                }
+            }
         }
         &_right{
             
@@ -47,6 +65,24 @@
                 cursor: default;
                 background: url('./icon/subDefault.svg') no-repeat center;
                 background-color: $color-secondary;
+            }
+
+            &-light{
+
+                background: url('./icon/subDefault.svg') no-repeat center;
+                background-color: $color-white;
+                border: 1px solid $color-black;
+    
+                &:hover{
+                    background: url('./icon/subHover.svg') no-repeat center;
+                    background-color: $color-light;
+                }
+    
+                &:disabled{
+                    cursor: default;
+                    background: url('./icon/subDefault.svg') no-repeat center;
+                    background-color: $color-secondary;
+                }
             }
         }
     }

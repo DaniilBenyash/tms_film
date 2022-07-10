@@ -45,6 +45,10 @@
         font-size: $font-size-subline-2;
         line-height: 24px;
         margin-left: 20px;
+
+        &-light{
+            background-color: $color-light;
+        }
     }
 
     &__text{

@@ -18,7 +18,7 @@ export const ButtonMore = ({limit, onClick}: ButtonMoreProps) => {
     }, [limit])
 
     return (
-        <button className={`button-more ${limitPage && 'button-more_dislpay_none'} ${'button-more-' + theme}`} onClick={onClick}>
+        <button className={`button-more ${limitPage && 'button-more_dislpay_none'} button-more-${theme}`} onClick={onClick}>
             Show more
             <span className="button-more__loader"></span>
         </button>

@@ -81,7 +81,7 @@ export const SettingsPage = ( ) => {
                     &&
                     <div className="settings-page__profile">
                     <h3 className="settings-page__title">Profile</h3>
-                        <div className={`settings-page__section-select ${'settings-page__section-select-' + theme}`}>
+                        <div className={`settings-page__section-select settings-page__section-select-${theme}`}>
                             <Input 
                                 label="Name"
                                 placeholder="Your email"
@@ -104,7 +104,7 @@ export const SettingsPage = ( ) => {
                 &&
                 <div className="settings-page__password">
                     <h3 className="settings-page__title">Password</h3>
-                    <div className={`settings-page__section-select ${'settings-page__section-select-' + theme}`}>
+                    <div className={`settings-page__section-select settings-page__section-select-${theme}`}>
                         <Input 
                             label="Password"
                             placeholder="Your password"
@@ -139,9 +139,9 @@ export const SettingsPage = ( ) => {
                 
                 <div className="settings-page__theme">
                     <h3 className="settings-page__title">Color mode</h3>
-                    <div className={`settings-page__theme-section ${'settings-page__theme-section-' + theme}`}>
+                    <div className={`settings-page__theme-section settings-page__theme-section-${theme}`}>
                         <div className='settings-page__theme_value'>
-                            <h4 className={`settings-page__h4-value ${'settings-page__h4-value-' + theme}`}>{theme}</h4>
+                            <h4 className={`settings-page__h4-value settings-page__h4-value-${theme}`}>{theme}</h4>
                             <p className="settings-page__p-value">{`Use value theme`}</p>
                         </div>
                         <Switch disabled={false} onClick={setTheme}/>

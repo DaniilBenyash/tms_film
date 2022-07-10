@@ -36,5 +36,9 @@
         &:hover{
             color: $color-white;
         }
+
+        &-light{
+            background-color: $color-light;
+        }
     }
 }

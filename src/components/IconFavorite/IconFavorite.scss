@@ -11,4 +11,11 @@
     right: 20px;
     display: flex;
     align-items: center;
+
+    &_position_none{
+        margin-left: 20px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
 }

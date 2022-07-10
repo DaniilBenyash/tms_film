@@ -19,7 +19,7 @@ function App() {
     }, [activeFilter])
     return (
 
-            <div className={`App ${'App-' + theme}`}>
+            <div className={`App App-${theme}`}>
                 <Header></Header>
                 <div className="App__section">
                     <NavigationMenu/>

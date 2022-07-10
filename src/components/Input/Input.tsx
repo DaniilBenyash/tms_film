@@ -21,12 +21,12 @@ export const Input = React.forwardRef(({label, placeholder, disabled, onChange, 
         <label className='input'>
             {label 
             && 
-            <h3 className={`input__label ${'input__label-' + theme}`}>{label}</h3>
+            <h3 className={`input__label input__label-${theme}`}>{label}</h3>
             }
             <input 
                 type={type ?? 'input'}
                 ref={ref}
-                className={`${error && 'input__form_error'} input__form ${'input__form-' + theme}`}
+                className={`${error && 'input__form_error'} input__form input__form-${theme}`}
                 placeholder={placeholder} 
                 disabled={disabled} 
                 value={value} 

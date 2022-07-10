@@ -34,14 +34,15 @@ export const searchPostsSlice = createSlice({
     initialState,
     reducers: {
         fetchSearchPosts: (state, action:PayloadAction<RequestForPosts>) => {
+            if(action.payload.numberPage === 1){
+                state.isLoading = 'idle'
+                state.requestForPosts = null
+                state.content = null
+                state.contentPostsInfo = null
+            }
             if(state.isLoading === 'idle'){
                 state.isLoadingInfo = 'idle'
                 state.isLoading = 'pending'
-                if(action.payload.numberPage === 1){
-                    state.requestForPosts = null
-                    state.content = null
-                    state.contentPostsInfo = null
-                }
                 state.requestForPosts = action.payload
             }
         },

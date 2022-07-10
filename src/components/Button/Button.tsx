@@ -1,5 +1,6 @@
 import React from "react";
 import './Button.scss';
+import { useTheme } from '../../features/theme'
 
 type ButtonProps = {
     text: string,
@@ -9,10 +10,11 @@ type ButtonProps = {
 }
 
 export const Button = ({text, onClick, className, disabled}: ButtonProps) => {
+    const { theme } = useTheme()
     return (
         <button
             onClick={onClick}
-            className={`${className} button`}
+            className={`${className} button  ${className}-${theme}`}
             disabled={disabled}
         >
             {text}

@@ -59,14 +59,12 @@ export const filterPostsSlice = createSlice({
         },
         fetchFilterPostsFailure: (state, action: PayloadAction<any>) => {
             state.isLoading = 'idle'
-            
             state.error = action.payload
         },
         fetchFilterPostsInfoFailure: (state, action: PayloadAction<any>) => {
             state.isLoading = 'idle'
             state.errorPostsInfo = action.payload
         },
-
         setFilter: (state, action: PayloadAction<Filter>) => {
             if(!state.filter){
                 state.filter = action.payload

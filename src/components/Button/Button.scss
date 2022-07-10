@@ -30,5 +30,13 @@
         &:hover{
             color: $color-light;
         }
+
+        &-light{
+            background-color: $color-light;
+
+            &:hover{
+                color: $color-graphite;
+            }
+        }
     }
 }

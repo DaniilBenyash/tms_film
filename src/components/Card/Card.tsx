@@ -41,7 +41,7 @@ export const Card = ({title, imdbID, poster, favorite, trend, genre, rating}: Ca
                 {favoriteValue && <IconFavorite/>}
             </div>
             <div >
-                <Link to={`/post/${imdbID}`} className={`card__title ${'card__title-' + theme}`}>
+                <Link to={`/post/${imdbID}`} className={`card__title card__title-${theme}`}>
                     {title}
                 </Link>
                 <Genre genre={genre.split(',').slice(0,3)}/>

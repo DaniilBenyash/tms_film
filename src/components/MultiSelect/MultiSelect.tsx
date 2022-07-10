@@ -117,7 +117,7 @@ export const MultiSelect = ({placeholder, title, genres}: MultiSelectProps) => {
             ? 
             <div className="multi-select__form">
                 <input 
-                    className="multi-select__input" 
+                    className={`multi-select__input multi-select__input-${theme}`} 
                     placeholder={placeholder} 
                     onChange={findGenre} 
                     onFocus={findGenre} 
