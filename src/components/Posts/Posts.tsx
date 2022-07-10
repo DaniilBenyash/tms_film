@@ -4,6 +4,7 @@ import { IOnePost } from '../../features/getOnePost/onePostSlice';
 import { ButtonMore } from '../ButtonMore';
 import { Card } from '../Card';
 import { useTheme } from '../../features/theme'
+import { FilterOption } from "../FilterOption";
 
 type PostsProps = {
     posts: IOnePost[] | null
@@ -11,9 +12,10 @@ type PostsProps = {
     buttonMore: boolean,
     onClickMore?: () => void,
     limit?: boolean,
+    option?: {} | null,
 }
 
-export const Posts = ({posts, error, onClickMore, limit, buttonMore}: PostsProps) => {
+export const Posts = ({posts, error, onClickMore, limit, buttonMore, option}: PostsProps) => {
 
     const { theme } = useTheme()
     return (
@@ -25,6 +27,7 @@ export const Posts = ({posts, error, onClickMore, limit, buttonMore}: PostsProps
         </div>
         :
         <div className="posts__section">
+            {option && <FilterOption option={option}/>}
             <div className="posts__cards">
                 {posts?.map((post, index) => {
                     return(

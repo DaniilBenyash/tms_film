@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useFilterPost } from "../../features/filterPost";
 import { Posts } from "../../components/Posts";
 import { IOnePost } from "../../features/getOnePost/onePostSlice";
-import { FilterOption } from "./components/FilterOption";
+
 
 export const SortingPage = () => {
 
@@ -14,13 +14,13 @@ export const SortingPage = () => {
     },[filter, filterPostInfo])
 
     return (
-        <div className="sorting-page">  
-            <FilterOption option={filter}/>
+        <>
             <Posts
                 posts={posts}
                 buttonMore={false}
                 error={errorFilter}
+                option={filter}
             />
-        </div>
+        </>
     )
 }

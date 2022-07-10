@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import './Filters.scss';
 import { ReactComponent as Cancel } from './icon/Cancel.svg';
-import { Tabs } from '../Tabs'
 import { Input } from '../Input'
 import { MultiSelect } from '../MultiSelect'
 import { Select } from '../Select'
@@ -12,7 +11,6 @@ import { useTheme } from "../../features/theme";
 
 export const Filters = () => {
     const { theme } = useTheme()
-    const [sortBy, setSortBy] = useState('Rating')
 
     const [genre] = useState(['Action', 'Adventure', 'Sci-Fi', 'Fantasy', 'Animation', 'Comedy', 'Family', 'Drama', 'Crime', 'Romance', 'Reality-TV', 'Western', 'Documentary', 'Game-Show', 'Short', 'Horror', 
     'Music', 'Mystery', 'Talk-Show', ])
@@ -20,11 +18,6 @@ export const Filters = () => {
     const [type] = useState(['movie', 'series', 'episode', 'game'])
  
     const {getFilterPost, setFilterState, clearFilterState, setWindowsFilter, activeFilter, filter} = useFilterPost()
-
-    const chengeSort = (ev: any) => {
-        setSortBy(ev.target.value)
-        setFilterState({sortBy: ev.target.value})
-    };
 
     const chengeMovieName = (ev: any) => setFilterState({movieName: ev.target.value});
     const chengeYearsTo = (ev: any) => setFilterState({yearsTo: ev.target.value});
@@ -41,7 +34,6 @@ export const Filters = () => {
 
     const clearFilter = () => {
         clearFilterState()
-        setSortBy('Rating')
         if(inputMovieName.current && inputYearsTo.current && inputYearsFrom.current && inputRatingTo.current && inputRatingFrom.current){
             inputMovieName.current.value=''
             inputYearsTo.current.value=''
