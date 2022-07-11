@@ -82,3 +82,34 @@
         grid-gap: 2vw;
     }
 }
+@media screen and (max-width: 1350px) {
+    .post-page{
+        padding: 0 56px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .post-page{
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+@media screen and (max-width: 700px) {
+    .post-page{
+        padding-top: 50px;
+        &__image-section{
+            margin: 0;
+        }
+        &__info-section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__watched-post{
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
