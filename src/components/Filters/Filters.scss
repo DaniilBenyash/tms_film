@@ -76,8 +76,31 @@
         grid-column-gap: 40px;
         align-items: end;
     }
+}
 
-    &__buttons-bottom{
+@media screen and (max-width: 1300px) {
+    .filters{
+        &__section{
 
+            width: 60vw;
+        }
+    }
+}
+@media screen and (max-width: 900px) {
+    .filters{
+        &__section{
+            overflow: scroll;
+            width: 100vw;
+            border-radius: 0;
+        }
+        &__window{
+            display: none;
+        }
+        &__two-select{
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+            
+        }
     }
 }
